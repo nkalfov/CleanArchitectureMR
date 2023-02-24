@@ -1,4 +1,5 @@
 using System.Linq.Expressions;
+using System.Collections.Generic;
 using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Customers;
 using Microsoft.EntityFrameworkCore;
