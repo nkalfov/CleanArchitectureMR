@@ -24,7 +24,7 @@ namespace CleanArchitecture.Application.Test.Customers.Queries
                 new CustomerModel
                 {
                     Id = 1,
-                    Name = "Matthew Renze"
+                    Name = "Dennis Ritchie"
                 },
                 new CustomerModel
                 {
