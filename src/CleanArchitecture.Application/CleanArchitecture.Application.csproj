@@ -8,6 +8,18 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Sales\" />
+    <None Remove="Sales\Queries\" />
+    <None Remove="Sales\Queries\GetSalesList\" />
+    <None Remove="Sales\Queries\GetSaleDetails\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sales\" />
+    <Folder Include="Sales\Queries\" />
+    <Folder Include="Sales\Queries\GetSalesList\" />
+    <Folder Include="Sales\Queries\GetSaleDetails\" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
