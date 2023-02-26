@@ -19,11 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Specifica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3E531931-596C-4818-9D63-B658986647AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain.Test", "tests\CleanArchitecture.Domain.Test\CleanArchitecture.Domain.Test.csproj", "{DFB78C14-D4D1-4183-9C17-890E17D1E793}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain.Tests", "tests\CleanArchitecture.Domain.Test\CleanArchitecture.Domain.Tests.csproj", "{DFB78C14-D4D1-4183-9C17-890E17D1E793}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Presentation", "src\CleanArchitecture.Presentation\CleanArchitecture.Presentation.csproj", "{267ABA79-6A71-4579-8F77-A3B51CBBA261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application.Test", "tests\CleanArchitecture.Application.Test\CleanArchitecture.Application.Test.csproj", "{78BEAE80-65DF-4E7E-81E3-B86D9062BCDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application.Tests", "tests\CleanArchitecture.Application.Test\CleanArchitecture.Application.Tests.csproj", "{78BEAE80-65DF-4E7E-81E3-B86D9062BCDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ACCA9079-1041-4872-9024-1600AEC10D64}"
 	ProjectSection(SolutionItems) = preProject
