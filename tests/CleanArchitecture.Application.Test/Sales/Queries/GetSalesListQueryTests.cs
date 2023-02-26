@@ -7,7 +7,7 @@ using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
 
-namespace CleanArchitecture.Application.Tests.Sales.Queries.GetSalesList
+namespace CleanArchitecture.Application.Tests.Sales.Queries
 {
     public class GetSalesListQueryTests
     {
