@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
-using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Domain.Employees;
 using Moq;
 using Moq.EntityFrameworkCore;

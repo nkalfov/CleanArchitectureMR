@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Domain.Employees;
 using Microsoft.EntityFrameworkCore;
 

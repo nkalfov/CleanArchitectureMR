@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CleanArchitecture.Application.Customers.Queries;
-using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Products.Queries.GetProductList;
 using CleanArchitecture.Domain.Customers;
 using CleanArchitecture.Domain.Products;

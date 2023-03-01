@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Domain.Sales;
 using Microsoft.EntityFrameworkCore;
 

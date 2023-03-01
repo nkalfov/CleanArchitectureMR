@@ -3,7 +3,7 @@ using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
 using CleanArchitecture.Application.Customers.Queries;
-using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Domain.Customers;
 
 namespace CleanArchitecture.Application.Test.Customers.Queries

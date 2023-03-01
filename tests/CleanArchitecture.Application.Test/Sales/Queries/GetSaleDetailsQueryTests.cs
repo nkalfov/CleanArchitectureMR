@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
 using CleanArchitecture.Domain.Sales;
 using Moq;
