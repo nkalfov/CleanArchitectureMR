@@ -1,7 +1,8 @@
-﻿using CleanArchitecture.Common.Contracts;
+﻿using CleanArchitecture.Common.Services;
+using CleanArchitecture.Common.Services.Contracts;
 using Xunit;
 
-namespace CleanArchitecture.Common.Tests;
+namespace CleanArchitecture.Common.Tests.Services;
 
 public class DateServiceTests
 {

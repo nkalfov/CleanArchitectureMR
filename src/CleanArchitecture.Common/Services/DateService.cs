@@ -1,7 +1,7 @@
 ﻿using System;
-using CleanArchitecture.Common.Contracts;
+using CleanArchitecture.Common.Services.Contracts;
 
-namespace CleanArchitecture.Common
+namespace CleanArchitecture.Common.Services
 {
     public class DateService : IDateService
     {

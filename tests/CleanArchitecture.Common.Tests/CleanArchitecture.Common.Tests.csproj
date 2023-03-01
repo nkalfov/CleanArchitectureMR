@@ -24,4 +24,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\CleanArchitecture.Common\CleanArchitecture.Common.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Serevices\" />
+    <None Remove="Options\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Options\" />
+  </ItemGroup>
 </Project>

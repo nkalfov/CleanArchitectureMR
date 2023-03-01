@@ -1,5 +1,6 @@
 ﻿using System;
-namespace CleanArchitecture.Common.Contracts
+
+namespace CleanArchitecture.Common.Services.Contracts
 {
 	public interface IDateService
 	{
