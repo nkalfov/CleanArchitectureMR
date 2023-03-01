@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
-using CleanArchitecture.Application.Customers.Queries;
+using CleanArchitecture.Application.Customers.Queries.GetCustomereList;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Domain.Customers;
 
