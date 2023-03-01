@@ -3,7 +3,7 @@ using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Domain.Customers;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.Application.Customers.Queries
+namespace CleanArchitecture.Application.Customers.Queries.GetCustomereList
 {
     public class GetCustomersListQuery : IGetCustomersListQuery
     {

@@ -1,4 +1,4 @@
-namespace CleanArchitecture.Application.Customers.Queries
+namespace CleanArchitecture.Application.Customers.Queries.GetCustomereList
 {
     public interface IGetCustomersListQuery
     {

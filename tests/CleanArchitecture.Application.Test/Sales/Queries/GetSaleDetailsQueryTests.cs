@@ -51,7 +51,7 @@ namespace CleanArchitecture.Application.Tests.Sales.Queries
                 UnitPrice = _expected.UnitPrice
             };
 
-            var databaseMock = new Mock<IDatabaseService>();
+            var databaseMock = new Mock<IDatabaseService>();            
             databaseMock
                 .Setup(x => x.Sales)
                 .ReturnsDbSet(new List<Sale> { sale });
