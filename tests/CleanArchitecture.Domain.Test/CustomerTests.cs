@@ -1,9 +1,9 @@
 using Xunit;
 using CleanArchitecture.Domain;
 
-namespace CleanArchitecture.Domain.Test.Customers
+namespace CleanArchitecture.Domain.Test
 {
-    public class CustomerTest
+    public class CustomerTests
     {
         [Theory(DisplayName = "Initializing Customers")]
         [InlineData(1, "John Doe")]

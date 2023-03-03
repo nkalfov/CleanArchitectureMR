@@ -1,9 +1,9 @@
 using Xunit;
 using CleanArchitecture.Domain;
 
-namespace CleanArchitecture.Domain.Test.Products
+namespace CleanArchitecture.Domain.Test
 {
-    public class ProductTest
+    public class ProductTests
     {
         [Theory(DisplayName = "Initializing Products")]
         [InlineData(1, "Doombringer (Champion Sword)", 5999.99)]

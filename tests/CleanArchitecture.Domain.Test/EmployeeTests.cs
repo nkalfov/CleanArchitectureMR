@@ -1,9 +1,9 @@
 using Xunit;
 using CleanArchitecture.Domain;
 
-namespace CleanArchitecture.Domain.Test.Employees
+namespace CleanArchitecture.Domain.Test
 {
-    public class EmployeeTest
+    public class EmployeeTests
     {
         [Theory(DisplayName = "Initializing Employees")]
         [InlineData(1, "Emerald Warden")]
