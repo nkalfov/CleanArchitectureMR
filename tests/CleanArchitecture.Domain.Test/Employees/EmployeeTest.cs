@@ -1,5 +1,5 @@
 using Xunit;
-using CleanArchitecture.Domain.Employees;
+using CleanArchitecture.Domain;
 
 namespace CleanArchitecture.Domain.Test.Employees
 {

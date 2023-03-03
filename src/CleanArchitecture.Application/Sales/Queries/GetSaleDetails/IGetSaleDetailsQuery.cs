@@ -1,5 +1,4 @@
-﻿using System;
-namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
+﻿namespace CleanArchitecture.Application.Sales.Queries.GetSaleDetails
 {
 	public interface IGetSaleDetailsQuery
 	{

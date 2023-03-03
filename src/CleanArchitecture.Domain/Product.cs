@@ -1,6 +1,4 @@
-using CleanArchitecture.Domain.Common;
-
-namespace CleanArchitecture.Domain.Products
+namespace CleanArchitecture.Domain
 {
     public class Product : IEntity<long>
     {

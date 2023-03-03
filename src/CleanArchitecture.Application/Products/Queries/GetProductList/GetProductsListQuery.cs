@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using CleanArchitecture.Application.Contracts;
-using CleanArchitecture.Domain.Products;
+using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Application.Products.Queries.GetProductList

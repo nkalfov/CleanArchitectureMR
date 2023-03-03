@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
-using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Domain;
 using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
@@ -31,18 +31,18 @@ namespace CleanArchitecture.Application.Tests.Sales.Queries
             var sale = new Sale
             {
                 Date = _expected.Date,
-                Customer = new Domain.Customers.Customer
+                Customer = new Customer
                 {
                     Id = 1,
                     Name = _expected.CustomerName
                 },
-                Employee = new Domain.Employees.Employee
+                Employee = new Employee
                 {
                     Id = 1,
                     Name = _expected.EmployeeName
                 },
                 Id = _expected.Id,
-                Product = new Domain.Products.Product
+                Product = new Product
                 {
                     Id = 1,
                     Name = _expected.ProductName

@@ -28,6 +28,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ACCA9079-1041-4872-9024-1600AEC10D64}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
+		notes.md = notes.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Common.Tests", "tests\CleanArchitecture.Common.Tests\CleanArchitecture.Common.Tests.csproj", "{4612FFEC-D5C3-4DD0-998E-4D50E1241426}"

@@ -1,9 +1,4 @@
-using CleanArchitecture.Domain.Common;
-using CleanArchitecture.Domain.Customers;
-using CleanArchitecture.Domain.Employees;
-using CleanArchitecture.Domain.Products;
-
-namespace CleanArchitecture.Domain.Sales
+namespace CleanArchitecture.Domain
 {
     public class Sale : IEntity<long>
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using CleanArchitecture.Application.Contracts;
-using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Application.Sales.Queries.GetSalesList

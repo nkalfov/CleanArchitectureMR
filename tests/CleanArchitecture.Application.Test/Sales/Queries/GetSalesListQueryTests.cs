@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
-using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Domain;
 using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
@@ -58,18 +58,18 @@ namespace CleanArchitecture.Application.Tests.Sales.Queries
                 sales.Add(new Sale
                 {
                     Id = item.Id,
-                    Customer = new Domain.Customers.Customer
+                    Customer = new Customer
                     {
                         Id = item.Id,
                         Name = item.CustomerName
                     },
                     Date = item.Date,
-                    Employee = new Domain.Employees.Employee
+                    Employee = new Employee
                     {
                         Id = item.Id,
                         Name = item.EmployeeName
                     },
-                    Product = new Domain.Products.Product
+                    Product = new Product
                     {
                         Id = item.Id,
                         Name = item.ProductName,
@@ -118,18 +118,18 @@ namespace CleanArchitecture.Application.Tests.Sales.Queries
                 sales.Add(new Sale
                 {
                     Id = item.Id,
-                    Customer = new Domain.Customers.Customer
+                    Customer = new Customer
                     {
                         Id = item.Id,
                         Name = item.CustomerName
                     },
                     Date = item.Date,
-                    Employee = new Domain.Employees.Employee
+                    Employee = new Employee
                     {
                         Id = item.Id,
                         Name = item.EmployeeName
                     },
-                    Product = new Domain.Products.Product
+                    Product = new Product
                     {
                         Id = item.Id,
                         Name = item.ProductName,

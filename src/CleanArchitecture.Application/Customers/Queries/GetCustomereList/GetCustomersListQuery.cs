@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 using CleanArchitecture.Application.Contracts;
-using CleanArchitecture.Domain.Customers;
+using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Application.Customers.Queries.GetCustomereList

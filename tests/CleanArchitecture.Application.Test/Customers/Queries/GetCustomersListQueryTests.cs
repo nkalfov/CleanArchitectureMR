@@ -4,7 +4,7 @@ using Moq.EntityFrameworkCore;
 using Xunit;
 using CleanArchitecture.Application.Customers.Queries.GetCustomereList;
 using CleanArchitecture.Application.Contracts;
-using CleanArchitecture.Domain.Customers;
+using CleanArchitecture.Domain;
 
 namespace CleanArchitecture.Application.Test.Customers.Queries
 {

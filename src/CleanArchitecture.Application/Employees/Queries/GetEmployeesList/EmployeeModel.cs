@@ -1,5 +1,4 @@
-﻿using System;
-namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
+﻿namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
 {
 	public class EmployeeModel
 	{

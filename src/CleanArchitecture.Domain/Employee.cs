@@ -1,6 +1,4 @@
-using CleanArchitecture.Domain.Common;
-
-namespace CleanArchitecture.Domain.Employees
+namespace CleanArchitecture.Domain
 {
     public class Employee : IEntity<long>
     {

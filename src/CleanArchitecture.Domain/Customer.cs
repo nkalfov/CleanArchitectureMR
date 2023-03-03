@@ -1,6 +1,4 @@
-using CleanArchitecture.Domain.Common;
-
-namespace CleanArchitecture.Domain.Customers
+namespace CleanArchitecture.Domain
 {
     public class Customer : IEntity<long>
     {

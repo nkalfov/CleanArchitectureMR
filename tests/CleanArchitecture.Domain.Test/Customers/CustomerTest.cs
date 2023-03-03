@@ -1,5 +1,5 @@
 using Xunit;
-using CleanArchitecture.Domain.Customers;
+using CleanArchitecture.Domain;
 
 namespace CleanArchitecture.Domain.Test.Customers
 {

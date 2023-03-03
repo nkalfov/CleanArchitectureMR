@@ -1,9 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
-using CleanArchitecture.Domain.Customers;
-using CleanArchitecture.Domain.Employees;
-using CleanArchitecture.Domain.Products;
-using CleanArchitecture.Domain.Sales;
+using CleanArchitecture.Domain;
 
 namespace CleanArchitecture.Application.Contracts
 {
