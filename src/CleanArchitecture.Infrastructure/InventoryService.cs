@@ -12,22 +12,19 @@ namespace CleanArchitecture.Infrastructure
 {
 	public class InventoryService : IInventoryService
 	{
-        private readonly IHttpClientFactory _httpClientFactory;
         private readonly Inventory _inventory;
+        private readonly HttpClient _httpClient;
 
         public InventoryService(
-            IHttpClientFactory httpClientFactory,
-            IOptionsSnapshot<Inventory> inventorySnapshot)
+            IOptionsSnapshot<Inventory> inventorySnapshot,
+            HttpClient httpClient)
 		{
-            _httpClientFactory = httpClientFactory;
+            _httpClient = httpClient;
             _inventory = inventorySnapshot.Value;
 		}
 
         public async Task NotifySaleOccurredAsync(long productId, int quantity)
         {
-            var client = _httpClientFactory
-                .CreateClient(nameof(InventoryService));
-
             var requestUri = _inventory.GetUrlNotifySale(productId);
             var requestObject = new SaleEventModel(productId, quantity);
             var requestJson = JsonSerializer.Serialize(requestObject);
@@ -41,7 +38,7 @@ namespace CleanArchitecture.Infrastructure
                 HttpMethod.Post,
                 requestUri);
 
-            using var response = await client.SendAsync(request);
+            using var response = await _httpClient.SendAsync(request);
 
             response.EnsureSuccessStatusCode();
         }
