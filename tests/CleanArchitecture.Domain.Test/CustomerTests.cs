@@ -7,7 +7,7 @@ namespace CleanArchitecture.Domain.Test
     {
         [Theory(DisplayName = "Initializing Customers")]
         [InlineData(1, "John Doe")]
-        [InlineData(2, "Matthew Renze")]
+        [InlineData(2, "Dennis Ritchie")]
         [InlineData(3, "Bjarne Stroustrup")]
         public void InitializingCustomers(long id, string name)
         {
