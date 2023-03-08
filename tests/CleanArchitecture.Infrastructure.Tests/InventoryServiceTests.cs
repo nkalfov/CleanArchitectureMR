@@ -10,17 +10,17 @@ namespace CleanArchitecture.Infrastructure.Tests
 {
     public class InventoryServiceTests
     {
-        private readonly Mock<IOptionsSnapshot<Inventory>> _inventorySnapshotMock;
+        private readonly Mock<IOptionsSnapshot<InventoryOptions>> _inventorySnapshotMock;
 
         public InventoryServiceTests()
         {
-            var inventory = new Inventory
+            var inventory = new InventoryOptions
             {
                 UrlBase = "https://domain.com",
                 PathNotifySale = "/notify/{0}"
             };
 
-            _inventorySnapshotMock = new Mock<IOptionsSnapshot<Inventory>>();
+            _inventorySnapshotMock = new Mock<IOptionsSnapshot<InventoryOptions>>();
             _inventorySnapshotMock
                 .Setup(x => x.Value)
                 .Returns(inventory);

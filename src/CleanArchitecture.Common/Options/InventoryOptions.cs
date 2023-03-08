@@ -1,9 +1,11 @@
-﻿
-using System;
+﻿using System;
 namespace CleanArchitecture.Common.Options
 {
-    public class Inventory
+    // TODO: Move to infrastructure
+    public class InventoryOptions
     {
+        public const string SettingKey = "Inventory";
+
         public string UrlBase { get; set; } = string.Empty;
         public string PathNotifySale { get; set; } = string.Empty;
 

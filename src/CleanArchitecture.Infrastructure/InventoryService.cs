@@ -12,11 +12,11 @@ namespace CleanArchitecture.Infrastructure
 {
 	public class InventoryService : IInventoryService
 	{
-        private readonly Inventory _inventory;
+        private readonly InventoryOptions _inventory;
         private readonly HttpClient _httpClient;
 
         public InventoryService(
-            IOptionsSnapshot<Inventory> inventorySnapshot,
+            IOptionsSnapshot<InventoryOptions> inventorySnapshot,
             HttpClient httpClient)
 		{
             _httpClient = httpClient;

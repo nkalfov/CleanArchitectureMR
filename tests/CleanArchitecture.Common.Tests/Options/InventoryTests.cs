@@ -6,14 +6,14 @@ namespace CleanArchitecture.Common.Tests.Options
 {
     public class InventoryTests
     {
-        private readonly Inventory _inventory;
+        private readonly InventoryOptions _inventory;
 
         private const string _baseUrl = "https://domain.com";
         private const string _pathNotifySale = "/product/{0}/sale/notify";
 
         public InventoryTests()
         {
-            _inventory = new Inventory
+            _inventory = new InventoryOptions
             {
                 UrlBase = _baseUrl,
                 PathNotifySale = _pathNotifySale
