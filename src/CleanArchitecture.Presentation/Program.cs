@@ -12,7 +12,11 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+
+
+// new line test
+
+app.UseHttpsRedirection();  
 app.UseStaticFiles();
 
 app.UseRouting();
