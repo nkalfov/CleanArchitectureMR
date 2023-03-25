@@ -12,10 +12,6 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-
-
-// new line test
-
 app.UseHttpsRedirection();  
 app.UseStaticFiles();
 

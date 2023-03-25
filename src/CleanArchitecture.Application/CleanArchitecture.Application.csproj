@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Common\CleanArchitecture.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -13,12 +14,18 @@
     <None Remove="Sales\Queries\" />
     <None Remove="Sales\Queries\GetSalesList\" />
     <None Remove="Sales\Queries\GetSaleDetails\" />
+    <None Remove="Sales\Commands\" />
+    <None Remove="Sales\Commands\CreateSale\" />
+    <None Remove="Sales\Commands\CreateSale\Factory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sales\" />
     <Folder Include="Sales\Queries\" />
     <Folder Include="Sales\Queries\GetSalesList\" />
     <Folder Include="Sales\Queries\GetSaleDetails\" />
+    <Folder Include="Sales\Commands\" />
+    <Folder Include="Sales\Commands\CreateSale\" />
+    <Folder Include="Sales\Commands\CreateSale\Factory\" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

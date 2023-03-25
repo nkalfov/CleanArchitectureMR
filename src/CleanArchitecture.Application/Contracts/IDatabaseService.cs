@@ -10,6 +10,6 @@ namespace CleanArchitecture.Application.Contracts
         DbSet<Product> Products { get; set; }
         DbSet<Sale> Sales { get; set; }
 
-        void Save();
+        Task SaveAsync(CancellationToken cancellationToken = default);
     }
 }

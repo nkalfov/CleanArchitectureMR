@@ -26,9 +26,9 @@ namespace CleanArchitecture.Persistance
         public DbSet<Product> Products { get; set; }
         public DbSet<Sale> Sales { get; set; }
 
-        public void Save()
+        public Task SaveAsync(CancellationToken cancellationToken = default)
         {
-            SaveChanges();
+            return SaveChangesAsync(cancellationToken);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

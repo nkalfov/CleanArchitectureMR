@@ -5,9 +5,9 @@ namespace CleanArchitecture.Common.Services
 {
     public class DateService : IDateService
     {
-        public DateTime GetDate()
+        public DateTimeOffset GetDate()
         {
-            return DateTime.Now.Date;
+            return DateTimeOffset.Now.Date;
         }
     }
 }

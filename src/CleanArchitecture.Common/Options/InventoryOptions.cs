@@ -1,7 +1,6 @@
 ﻿using System;
 namespace CleanArchitecture.Common.Options
 {
-    // TODO: Move to infrastructure
     public class InventoryOptions
     {
         public const string SettingKey = "Inventory";

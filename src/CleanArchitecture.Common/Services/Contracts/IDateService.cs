@@ -4,7 +4,7 @@ namespace CleanArchitecture.Common.Services.Contracts
 {
 	public interface IDateService
 	{
-		DateTime GetDate();
+		DateTimeOffset GetDate();
 	}
 }
 

@@ -27,4 +27,12 @@
     <ProjectReference Include="..\..\src\CleanArchitecture.Application\CleanArchitecture.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Sales\Commands\" />
+    <None Remove="Sales\Commands\CreateSale\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sales\Commands\" />
+    <Folder Include="Sales\Commands\CreateSale\" />
+  </ItemGroup>
 </Project>

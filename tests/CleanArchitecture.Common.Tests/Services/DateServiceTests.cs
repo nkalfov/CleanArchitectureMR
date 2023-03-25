@@ -17,7 +17,7 @@ public class DateServiceTests
     public void GetDateReturnsToday()
     {
         // Arrange
-        var expected = DateTime.Now.Date;
+        var expected = DateTimeOffset.Now.Date;
 
         // Act
         var actual = _dateService.GetDate();
@@ -30,7 +30,7 @@ public class DateServiceTests
     public void GetDateDoesNotReturnTomorrow()
     {
         // Arrange
-        var tomorrow = DateTime.Now.AddDays(1).Date;
+        var tomorrow = DateTimeOffset.Now.AddDays(1).Date;
 
         // Act
         var actual = _dateService.GetDate();
