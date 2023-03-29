@@ -1,0 +1,40 @@
+﻿@using CleanArchitecture.Application.Employees.Queries.GetEmployeesList
+
+@model IList<EmployeeModel>
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(x => x[0].Id)
+            </th>
+            <th>@Html.DisplayNameFor(x => x[0].Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count == 0)
+        {
+            <tr>
+                <td colspan="2">
+                    There are no employees
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

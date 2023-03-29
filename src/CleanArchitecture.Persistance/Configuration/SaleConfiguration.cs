@@ -18,7 +18,10 @@ namespace CleanArchitecture.Persistance.Configuration
             builder
                 .Property(x => x.TotalPrice)
                 .IsRequired()
-                .HasPrecision(5, 2);
+                .HasPrecision(10, 2);
+
+            builder
+                .Ignore(x => x.TotalPrice);
 
             builder.HasOne(x => x.Customer);
 

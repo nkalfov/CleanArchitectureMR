@@ -19,7 +19,7 @@ namespace CleanArchitecture.Persistance.Configuration
             builder
                 .Property(x => x.Price)
                 .IsRequired()
-                .HasPrecision(5, 2);
+                .HasPrecision(10, 2);
 
             builder.HasData(
                 new Product { Id = 1, Name = "Doombringer (Champion Sword)", Price= 5999.99m },

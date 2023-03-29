@@ -3,6 +3,8 @@ using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Customers.Queries.GetCustomereList;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 using CleanArchitecture.Application.Products.Queries.GetProductList;
+using CleanArchitecture.Application.Sales.Commands.CreateSale;
+using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Application.Sales.Queries.GetSaleDetails;
 using CleanArchitecture.Application.Sales.Queries.GetSalesList;
 using CleanArchitecture.Common.Options;
@@ -50,6 +52,13 @@ namespace CleanArchitecture.Presentation.Configuration.ServiceCollection
 
         public static void AddApplication(this WebApplicationBuilder builder)
         {
+            builder.AddQueries();
+            builder.AddFactories();
+            builder.AddCommands();
+        }
+
+        private static void AddQueries(this WebApplicationBuilder builder)
+        {
             builder
                 .Services
                 .AddScoped<IGetCustomersListQuery, GetCustomersListQuery>();
@@ -69,6 +78,20 @@ namespace CleanArchitecture.Presentation.Configuration.ServiceCollection
             builder
                 .Services
                 .AddScoped<IGetSaleDetailsQuery, GetSaleDetailsQuery>();
+        }
+
+        private static void AddFactories(this WebApplicationBuilder builder)
+        {
+            builder
+                .Services
+                .AddScoped<ISaleFactory, SaleFactory>();
+        }
+
+        private static void AddCommands(this WebApplicationBuilder builder)
+        {
+            builder
+                .Services
+                .AddScoped<ICreateSaleCommand, CreateSaleCommand>();
         }
     }
 }

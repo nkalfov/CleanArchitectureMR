@@ -69,6 +69,8 @@ namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
                 .Setup(x => x.Sales)
                 .ReturnsDbSet(salesList);
 
+#pragma warning disable CS8619 // Nullability of reference types in value doesn't match target type.
+
             databaseServiceMock
                 .Setup(x => x.Sales.AddAsync(
                     It.IsAny<Sale>(),
@@ -84,6 +86,8 @@ namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
                     {
                         return ValueTask.FromResult(default(EntityEntry<Sale>));
                     });
+
+#pragma warning restore CS8619 // Nullability of reference types in value doesn't match target type.
 
             databaseServiceMock
                 .Setup(x => x.SaveAsync(default))
@@ -140,7 +144,9 @@ namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
                 Times.Once);
 
             databaseServiceMock.Verify(
-                x => x.Sales.AddAsync(It.IsAny<Sale>(), default),
+                x => x.Sales.AddAsync(
+                    It.IsAny<Sale>(),
+                    default),
                 Times.Once);
 
             databaseServiceMock.Verify(
@@ -148,7 +154,9 @@ namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
                 Times.Once);
 
             inventoryServiceMock.Verify(
-                x => x.NotifySaleOccurredAsync(It.IsAny<long>(), It.IsAny<int>()),
+                x => x.NotifySaleOccurredAsync(
+                    It.IsAny<long>(),
+                    It.IsAny<int>()),
                 Times.Once);
         }
     }

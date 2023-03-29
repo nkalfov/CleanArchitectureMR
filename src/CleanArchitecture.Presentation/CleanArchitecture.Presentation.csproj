@@ -23,9 +23,14 @@
   <ItemGroup>
     <None Remove="Configuration\" />
     <None Remove="Configuration\ServiceCollection\" />
+    <None Remove="Views\Employees\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
     <Folder Include="Configuration\ServiceCollection\" />
+    <Folder Include="Views\Employees\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
   </ItemGroup>
 </Project>
