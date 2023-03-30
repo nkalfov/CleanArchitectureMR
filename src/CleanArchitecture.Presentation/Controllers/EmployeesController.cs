@@ -13,7 +13,7 @@ namespace CleanArchitecture.Presentation.Controllers
             _getEmployeesListQuery = getEmployeesListQuery;
         }
 
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             ViewBag.Title = "Employees";
 
