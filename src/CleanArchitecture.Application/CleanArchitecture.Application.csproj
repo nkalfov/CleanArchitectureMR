@@ -17,6 +17,9 @@
     <None Remove="Sales\Commands\" />
     <None Remove="Sales\Commands\CreateSale\" />
     <None Remove="Sales\Commands\CreateSale\Factory\" />
+    <None Remove="Employees\Commands\" />
+    <None Remove="Employees\Commands\CreateEmployee\" />
+    <None Remove="Employees\Commands\CreateEmployee\Factory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sales\" />
@@ -26,6 +29,9 @@
     <Folder Include="Sales\Commands\" />
     <Folder Include="Sales\Commands\CreateSale\" />
     <Folder Include="Sales\Commands\CreateSale\Factory\" />
+    <Folder Include="Employees\Commands\" />
+    <Folder Include="Employees\Commands\CreateEmployee\" />
+    <Folder Include="Employees\Commands\CreateEmployee\Factory\" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

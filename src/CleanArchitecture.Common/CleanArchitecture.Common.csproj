@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Dimensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dimensions\" />
+  </ItemGroup>
 </Project>
