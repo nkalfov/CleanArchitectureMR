@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Application.Contracts;
+using CleanArchitecture.Application.Employees.Factories.Contracts;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
-using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
 using CleanArchitecture.Common.Services.Contracts;
 using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -12,7 +12,7 @@ using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
 
-namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
+namespace CleanArchitecture.Application.Tests.Sales.Commands
 {
     public class CreateSaleCommandTests
     {

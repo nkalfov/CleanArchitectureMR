@@ -1,6 +1,6 @@
 ﻿using System;
 using CleanArchitecture.Application.Contracts;
-using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
+using CleanArchitecture.Application.Employees.Factories.Contracts;
 using CleanArchitecture.Common.Services.Contracts;
 
 namespace CleanArchitecture.Application.Sales.Commands.CreateSale

@@ -1,7 +1,8 @@
 ﻿using System;
+using CleanArchitecture.Application.Employees.Factories.Contracts;
 using CleanArchitecture.Domain;
 
-namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
+namespace CleanArchitecture.Application.Employees.Factories
 {
     public class SaleFactory : ISaleFactory
     {

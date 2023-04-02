@@ -1,7 +1,7 @@
 ﻿using System;
 using CleanArchitecture.Domain;
 
-namespace CleanArchitecture.Application.Sales.Commands.CreateSale.Factory
+namespace CleanArchitecture.Application.Employees.Factories.Contracts
 {
     public interface ISaleFactory
     {

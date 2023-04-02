@@ -47,6 +47,8 @@ public class EmployeesControllerActionIndexTests
 
         var objectResult = actionResult as ViewResult;
 
+        // TODO: Check if actionResult type can be Asserted
+
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 

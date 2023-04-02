@@ -29,10 +29,12 @@
 
   <ItemGroup>
     <None Remove="Sales\Commands\" />
-    <None Remove="Sales\Commands\CreateSale\" />
+    <None Remove="Factories\" />
+    <None Remove="Employees\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sales\Commands\" />
-    <Folder Include="Sales\Commands\CreateSale\" />
+    <Folder Include="Factories\" />
+    <Folder Include="Employees\Commands\" />
   </ItemGroup>
 </Project>

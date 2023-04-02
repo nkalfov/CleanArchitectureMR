@@ -1,9 +1,9 @@
 ﻿using System;
-using CleanArchitecture.Application.Sales.Commands.CreateSale.Factory;
+using CleanArchitecture.Application.Employees.Factories;
 using CleanArchitecture.Domain;
 using Xunit;
 
-namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
+namespace CleanArchitecture.Application.Tests.Factories
 {
     public class SaleFactoryTests
     {
@@ -11,6 +11,7 @@ namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
         public void CreateASale()
         {
             // Arrange
+            var expectedId = 0L;
             var date = DateTimeOffset.Now;
 
             var customer = new Customer
@@ -41,6 +42,8 @@ namespace CleanArchitecture.Application.Tests.Sales.Commands.CreateSale
 
             // Assert
             Assert.NotNull(actual);
+
+            Assert.Equal(expectedId, actual.Id);
 
             Assert.Equal(date, actual.Date);
 
