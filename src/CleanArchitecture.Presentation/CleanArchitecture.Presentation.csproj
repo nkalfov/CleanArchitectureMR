@@ -24,11 +24,13 @@
     <None Remove="Configuration\" />
     <None Remove="Configuration\ServiceCollection\" />
     <None Remove="Views\Employees\" />
+    <None Remove="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
     <Folder Include="Configuration\ServiceCollection\" />
     <Folder Include="Views\Employees\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
