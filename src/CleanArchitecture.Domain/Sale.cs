@@ -9,9 +9,13 @@ namespace CleanArchitecture.Domain
 
         public decimal TotalPrice => Quantity * UnitPrice;
 
-
+        public long CustomerId { get; set; }
         public Customer Customer { get; set; } = new Customer();
+
+        public long EmployeeId { get; set; }
         public Employee Employee { get; set; } = new Employee();
+
+        public long ProductId { get; set; }
         public Product Product { get; set; } = new Product();
     }
 }

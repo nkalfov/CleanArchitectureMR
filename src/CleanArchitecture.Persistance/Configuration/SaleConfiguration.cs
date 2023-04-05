@@ -23,26 +23,23 @@ namespace CleanArchitecture.Persistance.Configuration
             builder
                 .Ignore(x => x.TotalPrice);
 
-            builder.HasOne(x => x.Customer);
+            builder
+                .HasOne(x => x.Customer)
+                .WithMany(x => x.Sales)
+                .HasForeignKey(x => x.CustomerId)
+                .HasPrincipalKey(x => x.Id);
 
             builder
-                .Navigation(x => x.Customer)
-                .IsRequired()
-                .AutoInclude();
-
-            builder.HasOne(x => x.Employee);
-
-            builder
-                .Navigation(x => x.Employee)
-                .IsRequired()
-                .AutoInclude();
-
-            builder.HasOne(x => x.Product);
+                .HasOne(x => x.Employee)
+                .WithMany(x => x.Sales)
+                .HasForeignKey(x => x.EmployeeId)
+                .HasPrincipalKey(x => x.Id);
 
             builder
-                .Navigation(x => x.Product)
-                .IsRequired()
-                .AutoInclude();
+                .HasOne(x => x.Product)
+                .WithMany(x => x.Sales)
+                .HasForeignKey(x => x.ProductId)
+                .HasPrincipalKey(x => x.Id);
         }
     }
 }
