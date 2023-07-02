@@ -1,10 +1,13 @@
-﻿using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
+﻿using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
+using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 using CleanArchitecture.Presentation.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
 namespace CleanArchitecture.Presentation.Tests;
+
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 public class EmployeesControllerActionIndexTests
 {
@@ -37,7 +40,11 @@ public class EmployeesControllerActionIndexTests
             .Setup(x => x.ExecuteAsync())
             .Returns(Task.FromResult(expected));
 
-        var controller = new EmployeesController(getEmployeesListQueryMock.Object);
+        var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
+
+        var controller = new EmployeesController(
+            getEmployeesListQueryMock.Object,
+            createEmployeeMock.Object);
 
         // Act
         var actionResult = controller
@@ -45,28 +52,27 @@ public class EmployeesControllerActionIndexTests
             .GetAwaiter()
             .GetResult();
 
-        var objectResult = actionResult as ViewResult;
+        var viewResult = actionResult as ViewResult;
 
-        // TODO: Check if actionResult type can be Asserted
-
-
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-
-        var actual = objectResult.Model as IList<EmployeeModel>;
-
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+        var actual = viewResult.Model as IList<EmployeeModel>;
 
         // Assert
-        Assert.NotNull(objectResult);
+        getEmployeesListQueryMock.Verify(
+            x => x.ExecuteAsync(),
+            Times.Once());
+
+        createEmployeeMock.Verify(
+            x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
+            Times.Never);
+
+
+        Assert.NotNull(viewResult);
+        Assert.IsType<ViewResult>(viewResult);
 
         Assert.NotNull(actual);
         Assert.NotEmpty(actual);
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-
         Assert.Equal(expected.Count, actual.Count);
-
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         for (int index = 0; index < expected.Count; index++)
         {
@@ -74,4 +80,90 @@ public class EmployeesControllerActionIndexTests
             Assert.Equal(expected[index].Name, actual[index].Name);
         }
     }
+
+    [Fact(DisplayName = "Create Employee")]
+    public void CreateEmployee()
+    {
+        // Arrange
+        var dummy = new CreateEmployeeModel
+        {
+            Name = "Lorem ipsum"
+        };
+
+        var getEmployeesListQueryMock = new Mock<IGetEmployeesListQuery>();
+
+        var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
+        createEmployeeMock
+            .Setup(x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()))
+            .Returns(Task.CompletedTask);
+
+        var controller = new EmployeesController(
+            getEmployeesListQueryMock.Object,
+            createEmployeeMock.Object);
+
+        // Act
+        var actionResult = controller
+            .Create(dummy)
+            .GetAwaiter()
+            .GetResult();
+
+        var viewResult = actionResult as RedirectToActionResult;
+
+        // Assert
+        getEmployeesListQueryMock.Verify(
+            x => x.ExecuteAsync(),
+            Times.Never);
+
+        createEmployeeMock.Verify(
+            x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
+            Times.Once);
+
+        Assert.IsType<RedirectToActionResult>(actionResult);
+        Assert.Null(viewResult.ControllerName);
+        Assert.Equal(nameof(controller.Index), viewResult.ActionName);
+    }
+
+    [Fact(DisplayName = "Create Employee With Invalid ModelState Returns the Same Action")]
+    public void CreateEmployeeWithLessThanMinimumLength()
+    {
+        // Arrange
+        var dummy = new CreateEmployeeModel
+        {
+            Name = "Dummy"
+        };
+
+        var getEmployeesListQueryMock = new Mock<IGetEmployeesListQuery>();
+
+        var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
+        createEmployeeMock
+            .Setup(x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()))
+            .Returns(Task.CompletedTask);
+
+        var controller = new EmployeesController(
+            getEmployeesListQueryMock.Object,
+            createEmployeeMock.Object);
+
+        controller.ModelState.AddModelError(nameof(dummy.Name), "Some Error Stating Something");
+
+        // Act
+        var actionResult = controller
+            .Create(dummy)
+            .GetAwaiter()
+            .GetResult();
+
+        var viewResult = actionResult as ViewResult;
+
+        // Assert
+        getEmployeesListQueryMock.Verify(
+            x => x.ExecuteAsync(),
+            Times.Never);
+
+        createEmployeeMock.Verify(
+            x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
+            Times.Never);
+
+        Assert.False(controller.ModelState.IsValid);
+    }
 }
+
+#pragma warning restore CS8602 // Dereference of a possibly null reference.

@@ -6,7 +6,7 @@ using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
 
-namespace CleanArchitecture.Application.Test.Employees.Queries
+namespace CleanArchitecture.Application.Tests.Employees.Queries
 {
     public class GetEmployeesListQueryTests
     {

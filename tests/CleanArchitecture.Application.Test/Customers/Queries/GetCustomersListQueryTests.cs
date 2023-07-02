@@ -6,7 +6,7 @@ using CleanArchitecture.Application.Customers.Queries.GetCustomereList;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Domain;
 
-namespace CleanArchitecture.Application.Test.Customers.Queries
+namespace CleanArchitecture.Application.Tests.Customers.Queries
 {
     public class GetCustomersListQueryTests
     {

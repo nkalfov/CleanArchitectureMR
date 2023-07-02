@@ -7,10 +7,12 @@ I find Mathew's approach more suitable for small projects, where time to deliver
 
 Ideologically, the manifested Command-Query Segregation will differ from the original _Gang-of-Four_ by having the command return a result. This is a valuable tradeoff to keep the solution simple.
 
-# Dependencies
+
+# Environment
 The repository relies on PostgreSQL to store its data, compared to the common SQL Server. I do consider PostgreSQL as a more feature-rich database, which is quite extensible in additional configuration. Another reason I have chosen PostgreSQL is because I have originally started working on the application in a GNU/Linux installation and have later moved on MacOS Ventura. 
 
 The solution is developed mostly in Visual Studio for Mac with .NET 6 (LTS), ASP.NET Core and EntityFrameworkCore 6. The Unit Tests are using XUnit Framework.
+
 
 ## PostgreSQL
 I have installed PostgreSQL 14 with Homebrew. To do the same, simple run in the Terminal:
@@ -63,6 +65,7 @@ Save the content (press `control+X`) and make the file executable:
 ```zsh
 chmod u+x postgres.stop.command
 ```
+
 
 ## .NET 6
 If you have installed Visual Studio for Mac, you should already have `dotnet` available in the Terminal. The solution would need at least .NET 6 installed (or newer), You can verify by executing:
@@ -122,6 +125,7 @@ Download .NET:
 
 If you don't have a similar output, then please get Visual Studio for Mac. Alternatively, you can use JetBrains Rider or Visual Studio Code. If you do use VS Code, then download the auto-suggested plugins when you open the solution with it. 
 
+
 ### .NET 6 on a Debian-based GNU/Linux (Ubuntu)
 If you are on a Debian-based GNU/Linux, you can acquire .NET by running in the Terminal:
 ```bash
@@ -145,6 +149,7 @@ Open Visual Studio Code, press `Ctrl+P` and type
 ```
 ext install ms-dotnettools.csharp
 ```
+
 
 ## Entity Framework Tool
 The solution uses a code-first approach over its persistance model and uses Database Migrations, which are found in Entity Framework Tool. Open the terminal and execute:
@@ -195,6 +200,7 @@ the database with the latest migrations, execute
 ```zsh
 dotnet ef database update --startup-project src/CleanArchitecture.Presentation --project src/CleanArchitecture.Persistance
 ```
+
 
 ## Running Unit Tests
 You can run the Unit Tests from your IDE (VS or Rider), or you can do it with VS Code extensions; another way to run the unit tests is from the Terminal. Considering you are over the solution root, run:

@@ -1,6 +1,7 @@
 ﻿using System;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Customers.Queries.GetCustomereList;
+using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
 using CleanArchitecture.Application.Employees.Factories;
 using CleanArchitecture.Application.Employees.Factories.Contracts;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
@@ -97,6 +98,10 @@ namespace CleanArchitecture.Presentation.Configuration.ServiceCollection
             builder
                 .Services
                 .AddScoped<ICreateSaleCommand, CreateSaleCommand>();
+
+            builder
+                .Services
+                .AddScoped<ICreateEmployeeCommand, CreateEmployeeCommand>();
         }
     }
 }

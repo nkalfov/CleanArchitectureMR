@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
-using CleanArchitecture.Application.Employees.Factories;
 using CleanArchitecture.Application.Employees.Factories.Contracts;
 using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore.ChangeTracking;

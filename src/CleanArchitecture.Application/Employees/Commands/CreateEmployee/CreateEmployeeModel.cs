@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using CleanArchitecture.Common.Dimensions;
 
 namespace CleanArchitecture.Application.Employees.Commands.CreateEmployee

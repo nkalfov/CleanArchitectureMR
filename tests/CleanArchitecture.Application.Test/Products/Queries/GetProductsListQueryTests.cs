@@ -8,7 +8,7 @@ using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
 
-namespace CleanArchitecture.Application.Test.Products.Queries
+namespace CleanArchitecture.Application.Tests.Products.Queries
 {
     public class GetProductsListQueryTests
     {
