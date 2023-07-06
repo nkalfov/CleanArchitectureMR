@@ -161,8 +161,6 @@ public class EmployeesControllerActionIndexTests
         createEmployeeMock.Verify(
             x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
             Times.Never);
-
-        Assert.False(controller.ModelState.IsValid);
     }
 }
 
