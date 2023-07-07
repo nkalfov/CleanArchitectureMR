@@ -1,4 +1,6 @@
 ﻿using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
+using CleanArchitecture.Application.Employees.Commands.EditEmployee;
+using CleanArchitecture.Application.Employees.Queries.GetEmployeeById;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Presentation.Controllers;
@@ -12,6 +14,19 @@ namespace CleanArchitecture.Presentation.Tests;
 
 public class EmployeesControllerActionIndexTests
 {
+    private readonly Mock<IGetEmployeesListQuery> _dummyEmployeesListQuery;
+    private readonly Mock<IGetEmployeeByIdQuery> _dummyEmployeeByIdQuery;
+    private readonly Mock<ICreateEmployeeCommand> _dummyCreateEmployeeCommand;
+    private readonly Mock<IEditEmployeeCommand> _dummyEditEmployeeCommand;
+
+    public EmployeesControllerActionIndexTests()
+    {
+        _dummyEmployeesListQuery = new Mock<IGetEmployeesListQuery>();
+        _dummyEmployeeByIdQuery = new Mock<IGetEmployeeByIdQuery>();
+        _dummyCreateEmployeeCommand = new Mock<ICreateEmployeeCommand>();
+        _dummyEditEmployeeCommand = new Mock<IEditEmployeeCommand>();
+    }
+
     [Fact(DisplayName = "Get All Three Employees")]
     public void GettingThreeEmployees()
     {
@@ -41,11 +56,11 @@ public class EmployeesControllerActionIndexTests
             .Setup(x => x.ExecuteAsync())
             .Returns(Task.FromResult(expected));
 
-        var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
-
         var controller = new EmployeesController(
             getEmployeesListQueryMock.Object,
-            createEmployeeMock.Object);
+            _dummyEmployeeByIdQuery.Object,
+            _dummyCreateEmployeeCommand.Object,
+            _dummyEditEmployeeCommand.Object);
 
         // Act
         var actionResult = controller
@@ -62,8 +77,16 @@ public class EmployeesControllerActionIndexTests
             x => x.ExecuteAsync(),
             Times.Once());
 
-        createEmployeeMock.Verify(
+        _dummyEmployeeByIdQuery.Verify(
+            x => x.ExecuteAsync(It.IsAny<long>()),
+            Times.Never);
+
+        _dummyCreateEmployeeCommand.Verify(
             x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
+            Times.Never);
+
+        _dummyEditEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<EmployeeModel>()),
             Times.Never);
 
 
@@ -91,16 +114,16 @@ public class EmployeesControllerActionIndexTests
             Name = "Lorem ipsum"
         };
 
-        var getEmployeesListQueryMock = new Mock<IGetEmployeesListQuery>();
-
         var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
         createEmployeeMock
             .Setup(x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()))
             .Returns(Task.CompletedTask);
 
         var controller = new EmployeesController(
-            getEmployeesListQueryMock.Object,
-            createEmployeeMock.Object);
+            _dummyEmployeesListQuery.Object,
+            _dummyEmployeeByIdQuery.Object,
+            createEmployeeMock.Object,
+            _dummyEditEmployeeCommand.Object);
 
         // Act
         var actionResult = controller
@@ -111,13 +134,21 @@ public class EmployeesControllerActionIndexTests
         var viewResult = actionResult as RedirectToActionResult;
 
         // Assert
-        getEmployeesListQueryMock.Verify(
+        _dummyEmployeesListQuery.Verify(
             x => x.ExecuteAsync(),
+            Times.Never);
+
+        _dummyEmployeeByIdQuery.Verify(
+            x => x.ExecuteAsync(It.IsAny<long>()),
             Times.Never);
 
         createEmployeeMock.Verify(
             x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
             Times.Once);
+
+        _dummyEditEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<EmployeeModel>()),
+            Times.Never);
 
         Assert.IsType<RedirectToActionResult>(actionResult);
         Assert.Null(viewResult.ControllerName);
@@ -133,16 +164,16 @@ public class EmployeesControllerActionIndexTests
             Name = "Dummy"
         };
 
-        var getEmployeesListQueryMock = new Mock<IGetEmployeesListQuery>();
-
         var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
         createEmployeeMock
             .Setup(x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()))
             .Returns(Task.CompletedTask);
 
         var controller = new EmployeesController(
-            getEmployeesListQueryMock.Object,
-            createEmployeeMock.Object);
+            _dummyEmployeesListQuery.Object,
+            _dummyEmployeeByIdQuery.Object,
+            createEmployeeMock.Object,
+            _dummyEditEmployeeCommand.Object);
 
         controller.ModelState.AddModelError(nameof(dummy.Name), "Some Error Stating Something");
 
@@ -155,7 +186,7 @@ public class EmployeesControllerActionIndexTests
         var viewResult = actionResult as ViewResult;
 
         // Assert
-        getEmployeesListQueryMock.Verify(
+        _dummyEmployeesListQuery.Verify(
             x => x.ExecuteAsync(),
             Times.Never);
 
