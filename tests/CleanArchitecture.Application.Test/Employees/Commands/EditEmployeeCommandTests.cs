@@ -7,7 +7,6 @@ using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Moq.EntityFrameworkCore;
 using Xunit;
 
 namespace CleanArchitecture.Application.Tests.Employees.Commands
@@ -40,7 +39,7 @@ namespace CleanArchitecture.Application.Tests.Employees.Commands
 
             databaseServiceMock
                 .Setup(x => x.Employees)
-                .Returns(employeesDbSet.Object); 
+                .Returns(employeesDbSet.Object);
 
             databaseServiceMock
                 .Setup(x => x.SaveAsync(default))
@@ -69,6 +68,54 @@ namespace CleanArchitecture.Application.Tests.Employees.Commands
             databaseServiceMock.Verify(
                 x => x.SaveAsync(default),
                 Times.Once);
+        }
+
+        [Fact(DisplayName = ("Editing an unexisting employee does nothing"))]
+        public void EditUnexistingEmployee()
+        {
+            // Arrange
+            var employeeModel = new EmployeeModel
+            {
+                Id = 154,
+                Name = "Zephyr"
+            };
+
+            var employeesDbSet = new Mock<DbSet<Employee>>();
+
+            employeesDbSet
+                .Setup(x => x.FindAsync(It.IsAny<long>()))
+                .Returns(ValueTask.FromResult<Employee?>(default));
+
+            var databaseServiceMock = new Mock<IDatabaseService>();
+
+            databaseServiceMock
+                .Setup(x => x.Employees)
+                .Returns(employeesDbSet.Object);
+
+            databaseServiceMock
+                .Setup(x => x.SaveAsync(default))
+                .Returns(Task.CompletedTask);
+
+            var editEmployeeCommand = new EditEmployeeCommand(databaseServiceMock.Object);
+
+            // Act
+            editEmployeeCommand
+                .ExecuteAsync(employeeModel)
+                .GetAwaiter()
+                .GetResult();
+
+            // Assert
+            employeesDbSet.Verify(
+                x => x.FindAsync(It.IsAny<long>()),
+                Times.Once);
+
+            databaseServiceMock.Verify(
+                x => x.Employees,
+                Times.Once);
+
+            databaseServiceMock.Verify(
+                x => x.SaveAsync(default),
+                Times.Never);
         }
     }
 }
