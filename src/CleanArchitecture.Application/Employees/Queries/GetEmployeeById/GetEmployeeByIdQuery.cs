@@ -4,16 +4,15 @@ using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
+namespace CleanArchitecture.Application.Employees.Queries.GetEmployeeById
 {
-    public class GetEmployeesListQuery : IGetEmployeesListQuery
+    public class GetEmployeeByIdQuery : IGetEmployeeByIdQuery
     {
         private readonly IDatabaseService _databaseService;
 
-        public GetEmployeesListQuery(
-            IDatabaseService database)
+        public GetEmployeeByIdQuery(IDatabaseService databaseService)
         {
-            _databaseService = database;
+            _databaseService = databaseService;
         }
 
         private readonly Expression<Func<Employee, EmployeeModel>> _projection =
@@ -23,13 +22,14 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
                 Name = x.Name
             };
 
-        public async Task<IList<EmployeeModel>> ExecuteAsync()
+        public async Task<EmployeeModel?> ExecuteAsync(long id)
         {
             var employees = _databaseService
                 .Employees
+                .Where(x => x.Id == id)
                 .Select(_projection);
 
-            return await employees.ToListAsync();
+            return await employees.SingleOrDefaultAsync();
         }
     }
 }

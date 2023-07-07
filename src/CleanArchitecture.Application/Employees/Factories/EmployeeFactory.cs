@@ -1,13 +1,12 @@
-﻿using System;
-using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
-using CleanArchitecture.Application.Employees.Factories.Contracts;
+﻿using CleanArchitecture.Application.Employees.Factories.Contracts;
+using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Domain;
 
 namespace CleanArchitecture.Application.Employees.Factories
 {
     public class EmployeeFactory : IEmployeeFactory
     {
-        public Employee Create(CreateEmployeeModel model)
+        public Employee Create(BaseEmployeeModel model)
         {
             var result = new Employee
             {

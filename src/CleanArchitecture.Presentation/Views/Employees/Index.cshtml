@@ -1,4 +1,4 @@
-﻿@using CleanArchitecture.Application.Employees.Queries.GetEmployeesList
+﻿@using CleanArchitecture.Application.Employees.ViewModels
 
 @model IList<EmployeeModel>
 
@@ -12,13 +12,14 @@
                 @Html.DisplayNameFor(x => x[0].Id)
             </th>
             <th>@Html.DisplayNameFor(x => x[0].Name)</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @if (Model.Count == 0)
         {
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     There are no employees
                 </td>
             </tr>
@@ -34,13 +35,22 @@
                     <td>
                         @item.Name
                     </td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary"
+                           asp-controller="Employees"
+                           asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           role="button">
+                            Edit
+                        </a>
+                    </td>
                 </tr>
             }
         }
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="2">
+            <td colspan="3">
                 <a class="btn btn-sm btn-outline-primary" asp-controller="Employees" asp-action="Create" role="button">
                     Create
                 </a>

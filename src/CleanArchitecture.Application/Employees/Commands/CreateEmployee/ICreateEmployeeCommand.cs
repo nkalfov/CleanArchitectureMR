@@ -1,10 +1,10 @@
-﻿using System;
+﻿using CleanArchitecture.Application.Employees.ViewModels;
 
 namespace CleanArchitecture.Application.Employees.Commands.CreateEmployee
 {
     public interface ICreateEmployeeCommand
     {
-        Task ExecuteAsync(CreateEmployeeModel model);
+        Task ExecuteAsync(BaseEmployeeModel model);
     }
 }
 

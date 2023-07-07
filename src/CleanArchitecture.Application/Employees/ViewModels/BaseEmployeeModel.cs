@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CleanArchitecture.Common.Dimensions;
 
-namespace CleanArchitecture.Application.Employees.Commands.CreateEmployee
+namespace CleanArchitecture.Application.Employees.ViewModels
 {
-    public class CreateEmployeeModel
+    public class BaseEmployeeModel
     {
         [StringLength(
             EmployeeDimensions.LengthMax,

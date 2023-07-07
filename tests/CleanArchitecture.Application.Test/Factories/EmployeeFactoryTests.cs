@@ -1,6 +1,5 @@
-﻿using System;
-using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
-using CleanArchitecture.Application.Employees.Factories;
+﻿using CleanArchitecture.Application.Employees.Factories;
+using CleanArchitecture.Application.Employees.ViewModels;
 using Xunit;
 
 namespace CleanArchitecture.Application.Tests.Factories
@@ -13,7 +12,7 @@ namespace CleanArchitecture.Application.Tests.Factories
             // Arrange
             var expectedId = 0L;
             var expectedName = "John Doe";
-            var createEmployeeModel = new CreateEmployeeModel
+            var createEmployeeModel = new BaseEmployeeModel
             {
                 Name = expectedName
             };

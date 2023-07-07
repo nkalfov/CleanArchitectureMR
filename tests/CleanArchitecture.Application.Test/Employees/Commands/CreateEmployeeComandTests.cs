@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
 using CleanArchitecture.Application.Employees.Factories.Contracts;
+using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Moq;
@@ -18,7 +19,7 @@ namespace CleanArchitecture.Application.Tests.Employees.Commands
         public void CreateAnEmployee()
         {
             // Arrange
-            var createEmployeeModel = new CreateEmployeeModel
+            var createEmployeeModel = new BaseEmployeeModel
             {
                 Name = "John Doe"
             };
@@ -32,7 +33,7 @@ namespace CleanArchitecture.Application.Tests.Employees.Commands
 
             employeeFactoryMock
                 .Setup(x => x.Create(
-                    It.IsAny<CreateEmployeeModel>()))
+                    It.IsAny<BaseEmployeeModel>()))
                 .Returns(employee);
 
             var employeeList = new List<Employee>();

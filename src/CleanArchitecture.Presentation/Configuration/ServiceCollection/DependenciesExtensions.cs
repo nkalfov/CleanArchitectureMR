@@ -2,8 +2,10 @@
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Customers.Queries.GetCustomereList;
 using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
+using CleanArchitecture.Application.Employees.Commands.EditEmployee;
 using CleanArchitecture.Application.Employees.Factories;
 using CleanArchitecture.Application.Employees.Factories.Contracts;
+using CleanArchitecture.Application.Employees.Queries.GetEmployeeById;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
 using CleanArchitecture.Application.Products.Queries.GetProductList;
 using CleanArchitecture.Application.Sales.Commands.CreateSale;
@@ -71,6 +73,10 @@ namespace CleanArchitecture.Presentation.Configuration.ServiceCollection
 
             builder
                 .Services
+                .AddScoped<IGetEmployeeByIdQuery, GetEmployeeByIdQuery>();
+
+            builder
+                .Services
                 .AddScoped<IGetProductsListQuery, GetProductsListQuery>();
 
             builder
@@ -102,6 +108,10 @@ namespace CleanArchitecture.Presentation.Configuration.ServiceCollection
             builder
                 .Services
                 .AddScoped<ICreateEmployeeCommand, CreateEmployeeCommand>();
+
+            builder
+                .Services
+                .AddScoped<IEditEmployeeCommand, EditEmployeeCommand>();
         }
     }
 }

@@ -5,6 +5,7 @@ using CleanArchitecture.Domain;
 using Moq;
 using Moq.EntityFrameworkCore;
 using Xunit;
+using CleanArchitecture.Application.Employees.ViewModels;
 
 namespace CleanArchitecture.Application.Tests.Employees.Queries
 {

@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
 using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
+using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Presentation.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -62,7 +63,7 @@ public class EmployeesControllerActionIndexTests
             Times.Once());
 
         createEmployeeMock.Verify(
-            x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
+            x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
             Times.Never);
 
 
@@ -85,7 +86,7 @@ public class EmployeesControllerActionIndexTests
     public void CreateEmployee()
     {
         // Arrange
-        var dummy = new CreateEmployeeModel
+        var dummy = new BaseEmployeeModel
         {
             Name = "Lorem ipsum"
         };
@@ -94,7 +95,7 @@ public class EmployeesControllerActionIndexTests
 
         var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
         createEmployeeMock
-            .Setup(x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()))
+            .Setup(x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()))
             .Returns(Task.CompletedTask);
 
         var controller = new EmployeesController(
@@ -115,7 +116,7 @@ public class EmployeesControllerActionIndexTests
             Times.Never);
 
         createEmployeeMock.Verify(
-            x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
+            x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
             Times.Once);
 
         Assert.IsType<RedirectToActionResult>(actionResult);
@@ -127,7 +128,7 @@ public class EmployeesControllerActionIndexTests
     public void CreateEmployeeWithLessThanMinimumLength()
     {
         // Arrange
-        var dummy = new CreateEmployeeModel
+        var dummy = new BaseEmployeeModel
         {
             Name = "Dummy"
         };
@@ -136,7 +137,7 @@ public class EmployeesControllerActionIndexTests
 
         var createEmployeeMock = new Mock<ICreateEmployeeCommand>();
         createEmployeeMock
-            .Setup(x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()))
+            .Setup(x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()))
             .Returns(Task.CompletedTask);
 
         var controller = new EmployeesController(
@@ -159,7 +160,7 @@ public class EmployeesControllerActionIndexTests
             Times.Never);
 
         createEmployeeMock.Verify(
-            x => x.ExecuteAsync(It.IsAny<CreateEmployeeModel>()),
+            x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
             Times.Never);
     }
 }

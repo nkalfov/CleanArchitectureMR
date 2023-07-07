@@ -20,6 +20,9 @@
     <None Remove="Employees\Commands\CreateEmployee\" />
     <None Remove="Employees\Factories\" />
     <None Remove="Employees\Factories\Contracts\" />
+    <None Remove="Employees\Commands\EditEmployee\" />
+    <None Remove="Employees\Queries\GetEmployeeById\" />
+    <None Remove="Employees\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sales\" />
@@ -32,6 +35,9 @@
     <Folder Include="Employees\Commands\CreateEmployee\" />
     <Folder Include="Employees\Factories\" />
     <Folder Include="Employees\Factories\Contracts\" />
+    <Folder Include="Employees\Commands\EditEmployee\" />
+    <Folder Include="Employees\Queries\GetEmployeeById\" />
+    <Folder Include="Employees\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

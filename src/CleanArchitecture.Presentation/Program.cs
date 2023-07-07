@@ -1,4 +1,5 @@
 using CleanArchitecture.Presentation.Configuration.ServiceCollection;
+using CleanArchitecture.Presentation.Resources;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,10 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();  
+app.UseExceptionHandler(CommonRoutes.Error);
+app.UseStatusCodePagesWithRedirects(CommonRoutes.NotFound);
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();

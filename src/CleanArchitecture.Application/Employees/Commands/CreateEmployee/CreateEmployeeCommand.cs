@@ -1,7 +1,6 @@
-﻿using System;
-using CleanArchitecture.Application.Contracts;
+﻿using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Employees.Factories.Contracts;
-using CleanArchitecture.Application.Sales.Commands.CreateSale;
+using CleanArchitecture.Application.Employees.ViewModels;
 
 namespace CleanArchitecture.Application.Employees.Commands.CreateEmployee
 {
@@ -18,7 +17,7 @@ namespace CleanArchitecture.Application.Employees.Commands.CreateEmployee
             _databaseService = databaseService;
         }
 
-        public async Task ExecuteAsync(CreateEmployeeModel model)
+        public async Task ExecuteAsync(BaseEmployeeModel model)
         {
             var employee = _employeeFactory.Create(model);
 

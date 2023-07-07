@@ -1,12 +1,11 @@
-﻿using System;
-using CleanArchitecture.Application.Employees.Commands.CreateEmployee;
+﻿using CleanArchitecture.Application.Employees.ViewModels;
 using CleanArchitecture.Domain;
 
 namespace CleanArchitecture.Application.Employees.Factories.Contracts
 {
     public interface IEmployeeFactory
     {
-        Employee Create(CreateEmployeeModel model);
+        Employee Create(BaseEmployeeModel model);
     }
 }
 

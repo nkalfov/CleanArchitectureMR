@@ -1,11 +1,12 @@
 ﻿@using CleanArchitecture.Application.Employees.ViewModels
 
-@model BaseEmployeeModel
+@model EmployeeModel
 
 <h2>@ViewBag.Title</h2>
 <hr>
 
-<form asp-action="Create">
+<form asp-action="Edit">
+    <input asp-for="Id" type="hidden">
     <div class="row">
         <div class="col-12">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
