@@ -89,9 +89,7 @@ public class EmployeesControllerActionIndexTests
             x => x.ExecuteAsync(It.IsAny<EmployeeModel>()),
             Times.Never);
 
-
-        Assert.NotNull(viewResult);
-        Assert.IsType<ViewResult>(viewResult);
+        Assert.IsType<ViewResult>(actionResult);
 
         Assert.NotNull(actual);
         Assert.NotEmpty(actual);
@@ -193,6 +191,143 @@ public class EmployeesControllerActionIndexTests
         createEmployeeMock.Verify(
             x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
             Times.Never);
+    }
+
+    [Fact(DisplayName = "Get Edit Employee With an Existing ID Returns an Employee")]
+    public void GetEditEmployeeWithExistingId()
+    {
+        // Arrange
+        var employee = new EmployeeModel
+        {
+            Id = 7,
+            Name = "Valkyrie"
+        };
+
+        var getEmployeeByIdQuery = new Mock<IGetEmployeeByIdQuery>();
+        getEmployeeByIdQuery
+            .Setup(x => x.ExecuteAsync(It.IsAny<long>()))
+            .Returns(Task.FromResult<EmployeeModel?>(employee));
+
+        var controller = new EmployeesController(
+            _dummyEmployeesListQuery.Object,
+            getEmployeeByIdQuery.Object,
+            _dummyCreateEmployeeCommand.Object,
+            _dummyEditEmployeeCommand.Object);
+
+        // Act
+        var actionResult = controller
+            .Edit(employee.Id)
+            .GetAwaiter()
+            .GetResult();
+
+        var viewResult = actionResult as ViewResult;
+
+        var actual = viewResult.Model as EmployeeModel;
+
+        // Assert
+        _dummyEmployeesListQuery.Verify(
+            x => x.ExecuteAsync(),
+            Times.Never());
+
+        getEmployeeByIdQuery.Verify(
+            x => x.ExecuteAsync(It.IsAny<long>()),
+            Times.Once);
+
+        _dummyCreateEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
+            Times.Never);
+
+        _dummyEditEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<EmployeeModel>()),
+            Times.Never);
+
+        Assert.IsType<ViewResult>(actionResult);
+        Assert.NotNull(actual);
+        Assert.Equal(employee.Id, actual.Id);
+        Assert.Equal(employee.Name, actual.Name);
+    }
+
+    [Fact(DisplayName = "Get Edit Employee With an Nonexisting ID Returns Not Found")]
+    public void GetEditEmployeeWithNonexistingId()
+    {
+        // Arrange
+        var getEmployeeByIdQuery = new Mock<IGetEmployeeByIdQuery>();
+        getEmployeeByIdQuery
+            .Setup(x => x.ExecuteAsync(It.IsAny<long>()))
+            .Returns(Task.FromResult<EmployeeModel?>(default));
+
+        var controller = new EmployeesController(
+            _dummyEmployeesListQuery.Object,
+            getEmployeeByIdQuery.Object,
+            _dummyCreateEmployeeCommand.Object,
+            _dummyEditEmployeeCommand.Object);
+
+        // Act
+        var actionResult = controller
+            .Edit(-1)
+            .GetAwaiter()
+            .GetResult();
+
+        // Assert
+        _dummyEmployeesListQuery.Verify(
+            x => x.ExecuteAsync(),
+            Times.Never());
+
+        getEmployeeByIdQuery.Verify(
+            x => x.ExecuteAsync(It.IsAny<long>()),
+            Times.Once);
+
+        _dummyCreateEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
+            Times.Never);
+
+        _dummyEditEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<EmployeeModel>()),
+            Times.Never);
+
+        Assert.IsType<NotFoundResult>(actionResult);
+    }
+
+    [Fact(DisplayName = "Post Edit Employee Redirect To Employee Index No Matter if Employee Exists or Not")]
+    public void PostEditEmployee() {
+        // Arrange
+        var editEmployeeCommand = new Mock<IEditEmployeeCommand>();
+
+        editEmployeeCommand
+            .Setup(x => x.ExecuteAsync(
+                It.IsAny<EmployeeModel>()))
+            .Returns(Task.CompletedTask);
+
+        var controller = new EmployeesController(
+            _dummyEmployeesListQuery.Object,
+            _dummyEmployeeByIdQuery.Object,
+            _dummyCreateEmployeeCommand.Object,
+            editEmployeeCommand.Object);
+
+        // Act
+        var actionResult = controller
+            .Edit(new EmployeeModel())
+            .GetAwaiter()
+            .GetResult();
+
+        // Assert
+        _dummyEmployeesListQuery.Verify(
+            x => x.ExecuteAsync(),
+            Times.Never());
+
+        _dummyEmployeeByIdQuery.Verify(
+            x => x.ExecuteAsync(It.IsAny<long>()),
+            Times.Never);
+
+        _dummyCreateEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<BaseEmployeeModel>()),
+            Times.Never);
+
+        editEmployeeCommand.Verify(
+            x => x.ExecuteAsync(It.IsAny<EmployeeModel>()),
+            Times.Once);
+
+        Assert.IsType<RedirectToActionResult>(actionResult);
     }
 }
 

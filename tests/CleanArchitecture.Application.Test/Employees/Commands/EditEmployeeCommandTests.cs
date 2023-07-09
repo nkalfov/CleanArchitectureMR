@@ -94,6 +94,7 @@ namespace CleanArchitecture.Application.Tests.Employees.Commands
 
             databaseServiceMock
                 .Setup(x => x.SaveAsync(default))
+
                 .Returns(Task.CompletedTask);
 
             var editEmployeeCommand = new EditEmployeeCommand(databaseServiceMock.Object);
