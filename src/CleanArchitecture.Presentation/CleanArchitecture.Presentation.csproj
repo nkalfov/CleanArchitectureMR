@@ -23,14 +23,20 @@
   <ItemGroup>
     <None Remove="Configuration\" />
     <None Remove="Configuration\ServiceCollection\" />
-    <None Remove="Views\Employees\" />
     <None Remove="Resources\" />
+    <None Remove="Controllers\Employees\" />
+    <None Remove="Views\EmployeesList\" />
+    <None Remove="Views\EmployeesCreate\" />
+    <None Remove="Views\EmployeesEdit\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
     <Folder Include="Configuration\ServiceCollection\" />
-    <Folder Include="Views\Employees\" />
     <Folder Include="Resources\" />
+    <Folder Include="Controllers\Employees\" />
+    <Folder Include="Views\EmployeesList\" />
+    <Folder Include="Views\EmployeesCreate\" />
+    <Folder Include="Views\EmployeesEdit\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.15">
