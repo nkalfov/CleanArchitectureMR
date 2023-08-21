@@ -1,47 +1,47 @@
-﻿using CleanArchitecture.Application.Employees.Queries.GetEmployeesList;
-using CleanArchitecture.Application.Employees.ViewModels;
-using CleanArchitecture.Presentation.Controllers.Employees;
+﻿using CleanArchitecture.Application.Products.Queries.GetProductList;
+using CleanArchitecture.Presentation.Controllers.Products;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 
-namespace CleanArchitecture.Presentation.Tests.Employees
+namespace CleanArchitecture.Presentation.Tests.Products
 {
-    public class EmployeesListControllerTests
+    public class ProductsListControllerTests
     {
-        [Fact(DisplayName = "Get All Three Employees")]
-        public void GettingThreeEmployees()
+        [Fact(DisplayName = "Get All Three Products")]
+        public void GettingThreeProducts()
         {
-            IList<EmployeeModel> expected = new List<EmployeeModel>
+            // Arrange
+            IList<ProductModel> expected = new List<ProductModel>
             {
-                new EmployeeModel
+                new ProductModel
                 {
                     Id = 1,
-                    Name = "Emerald Warden"
+                    Name = "Doombringer (Champion Sword)",
+                    Price = 5999.99m
                 },
-                new EmployeeModel
+                new ProductModel
                 {
                     Id = 2,
-                    Name = "Flint Beastwood"
+                    Name = "Flamebellow (Balrog Blade)",
+                    Price = 7459.55m
                 },
-                new EmployeeModel
+                new ProductModel
                 {
                     Id = 3,
-                    Name = "Armadon"
+                    Name = "The Grandfather (Colossus Blade)",
+                    Price = 9999.98m
                 }
             };
 
-            // Arrange
-            var getEmployeesListQueryMock = new Mock<IGetEmployeesListQuery>();
-
-            getEmployeesListQueryMock
+            var getProductsListQuery = new Mock<IGetProductsListQuery>();
+            getProductsListQuery
                 .Setup(x => x.ExecuteAsync())
                 .Returns(Task.FromResult(expected));
 
-            var controller = new EmployeesListController(
-                getEmployeesListQueryMock.Object);
+            var controller = new ProductsListController(getProductsListQuery.Object);
 
             // Act
             var actionResult = controller
@@ -51,10 +51,10 @@ namespace CleanArchitecture.Presentation.Tests.Employees
 
             var viewResult = actionResult as ViewResult;
 
-            var actual = viewResult.Model as IList<EmployeeModel>;
+            var actual = viewResult.Model as IList<ProductModel>;
 
             // Assert
-            getEmployeesListQueryMock.Verify(
+            getProductsListQuery.Verify(
                 x => x.ExecuteAsync(),
                 Times.Once());
 

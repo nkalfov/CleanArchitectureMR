@@ -28,6 +28,8 @@
     <None Remove="Views\EmployeesList\" />
     <None Remove="Views\EmployeesCreate\" />
     <None Remove="Views\EmployeesEdit\" />
+    <None Remove="Controllers\Products\" />
+    <None Remove="Views\ProductsList\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
@@ -37,6 +39,8 @@
     <Folder Include="Views\EmployeesList\" />
     <Folder Include="Views\EmployeesCreate\" />
     <Folder Include="Views\EmployeesEdit\" />
+    <Folder Include="Controllers\Products\" />
+    <Folder Include="Views\ProductsList\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.15">

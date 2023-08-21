@@ -10,6 +10,8 @@
         public const string EmployeesEditById = "/Employees/Edit/{id}";
         public const string EmployeesEdit = "/Employees/Edit";
 
+        public const string ProductsList = "/Products";
+
     }
 }
 

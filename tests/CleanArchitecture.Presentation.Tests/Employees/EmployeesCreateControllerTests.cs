@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+
 namespace CleanArchitecture.Presentation.Tests.Employees
 {
     public class EmployeesCreateControllerTests
@@ -78,3 +80,4 @@ namespace CleanArchitecture.Presentation.Tests.Employees
     }
 }
 
+#pragma warning restore CS8602 // Dereference of a possibly null reference.

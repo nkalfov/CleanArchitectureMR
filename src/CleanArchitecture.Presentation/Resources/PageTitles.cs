@@ -7,6 +7,8 @@ namespace CleanArchitecture.Presentation.Resources
         public const string EmployeesCreate = "Create an Employee";
         public const string EmployeesEdit = "Edit an Employee";
         public const string EmployeesDetails = "Employee Details";
+
+        public const string ProductsIndex = "Products";
     }
 }
 
