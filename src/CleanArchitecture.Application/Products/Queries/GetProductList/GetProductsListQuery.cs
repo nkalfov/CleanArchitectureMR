@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using CleanArchitecture.Application.Contracts;
+using CleanArchitecture.Application.Products.ViewModels;
 using CleanArchitecture.Domain;
 using Microsoft.EntityFrameworkCore;
 

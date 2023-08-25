@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using CleanArchitecture.Application.Customers.Queries;
+﻿using System.Collections.Generic;
 using CleanArchitecture.Application.Contracts;
 using CleanArchitecture.Application.Products.Queries.GetProductList;
+using CleanArchitecture.Application.Products.ViewModels;
 using CleanArchitecture.Domain;
 using Moq;
 using Moq.EntityFrameworkCore;

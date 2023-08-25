@@ -23,6 +23,7 @@
     <None Remove="Employees\Commands\EditEmployee\" />
     <None Remove="Employees\Queries\GetEmployeeById\" />
     <None Remove="Employees\ViewModels\" />
+    <None Remove="Products\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sales\" />
@@ -38,6 +39,7 @@
     <Folder Include="Employees\Commands\EditEmployee\" />
     <Folder Include="Employees\Queries\GetEmployeeById\" />
     <Folder Include="Employees\ViewModels\" />
+    <Folder Include="Products\ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>

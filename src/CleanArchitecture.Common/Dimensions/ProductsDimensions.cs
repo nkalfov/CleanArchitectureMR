@@ -1,6 +1,6 @@
 ﻿namespace CleanArchitecture.Common.Dimensions
 {
-    public static class EmployeeDimensions
+    public class ProductsDimensions
     {
         public const int LengthMax = 50;
         public const int LengthMin = 5;

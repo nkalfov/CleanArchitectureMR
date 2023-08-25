@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.Products.Queries.GetProductList;
+using CleanArchitecture.Application.Products.ViewModels;
 using CleanArchitecture.Presentation.Controllers.Products;
 using Microsoft.AspNetCore.Mvc;
 using Moq;

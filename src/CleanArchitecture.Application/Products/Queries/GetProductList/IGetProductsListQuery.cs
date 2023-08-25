@@ -1,4 +1,6 @@
-﻿namespace CleanArchitecture.Application.Products.Queries.GetProductList
+﻿using CleanArchitecture.Application.Products.ViewModels;
+
+namespace CleanArchitecture.Application.Products.Queries.GetProductList
 {
 	public interface IGetProductsListQuery
 	{

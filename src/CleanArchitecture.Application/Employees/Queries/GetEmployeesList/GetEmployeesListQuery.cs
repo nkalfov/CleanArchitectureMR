@@ -10,8 +10,7 @@ namespace CleanArchitecture.Application.Employees.Queries.GetEmployeesList
     {
         private readonly IDatabaseService _databaseService;
 
-        public GetEmployeesListQuery(
-            IDatabaseService database)
+        public GetEmployeesListQuery(IDatabaseService database)
         {
             _databaseService = database;
         }
